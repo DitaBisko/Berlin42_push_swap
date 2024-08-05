@@ -26,33 +26,29 @@ t_bool	one_arg_validation(char *arg)
 	return (true);
 }
 
+int	ft_strlen(char *s)
+{
+	int	count;
+
+	count = 0;
+	while (s[count] != '\0')
+		count++;
+	return (count);
+}
+
 t_bool	args_validity_check(char **args)
 {
 	while (*args)
 	{
+		if (*args[0] == '\0' && ft_strlen(*args) == 0)
+			return (false);
+		if (*args[0] == '-' && ft_strlen(*args) == 1)
+			return (false);
+		if (*args[0] == '+' && ft_strlen(*args) == 1)
+			return (false);
 		if (one_arg_validation(*args) == false)
 			return (false);
 		args++;
 	}
 	return (true);
 }
-/*
-t_bool	no_duplicates(t_list **stack)
-{
-	t_list	**outer;
-	t_list	**inner;
-
-	outer = stack;
-	while (outer != NULL)
-	{
-		inner = outer->next;
-		while (inner != NULL)
-		{
-			if (outer->value == inner->value)
-				return (false);
-			inner = inner->next;
-		}
-		outer = outer->next;
-	}
-	return (true);
-}*/

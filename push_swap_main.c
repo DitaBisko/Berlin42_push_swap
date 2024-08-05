@@ -73,7 +73,10 @@ int	main(int argc, char **argv)
 	stack_b = NULL;
 	argument_count = 0;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
-		exit (1);
+	{
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	args = char_num_arr(argv, argc, &argument_count);
 	validity_error(args, argument_count);
 	fill_stack(args, &stack_a, argument_count);
