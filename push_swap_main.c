@@ -6,7 +6,7 @@
 /*   By: dbisko <dbisko@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 15:20:09 by dbisko            #+#    #+#             */
-/*   Updated: 2024/07/08 22:01:33 by dbisko           ###   ########.fr       */
+/*   Updated: 2024/08/06 16:30:31 by dbisko           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,9 @@ int	main(int argc, char **argv)
 	stack_a = NULL;
 	stack_b = NULL;
 	argument_count = 0;
-	if (argc == 1 || (argc == 2 && !argv[1][0]))
+	if (argc == 1)
+		exit (1);
+	if (argc == 2 && !argv[1][0])
 	{
 		write(2, "Error\n", 6);
 		exit(1);
